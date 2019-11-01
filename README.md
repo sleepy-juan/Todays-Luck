@@ -7,4 +7,6 @@
 
 ## Collaborators
 * [Minkyu Kim](https://github.com/kimmk135)
+* Woojin Lee - *Cheer Leader*
+* Taehyeon An - *Ideation*
 * [Juan Lee](https://github.com/sleepy-juan)
