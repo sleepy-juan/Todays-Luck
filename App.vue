@@ -37,45 +37,47 @@ import business_image from "./assets/business.png";
 
 import { Alert } from "react-native";
 
-let lucktype = "사업운";
-
 export default {
-  data: function() {
-    let f = luck.filter(l => l.name === lucktype)[0];
+  data: {
+    luck: luck,
+    lucktype: "재물운"
+  },
+  computed: {
+    text: function() {
+      return luck.filter(l => l.name === this.lucktype)[0].text[0];
+    },
+    image: function() {
+      let f = luck.filter(l => l.name === this.lucktype)[0];
 
-    let img = money_image;
-    if (lucktype === "사업운") {
-      img = business_image;
-    } else if (lucktype === "연애운") {
-      img = love_image;
-    } else if (lucktype === "건강운") {
-      img = health_image;
+      let img = money_image;
+      if (this.lucktype === "사업운") {
+        img = business_image;
+      } else if (this.lucktype === "애정운") {
+        img = love_image;
+      } else if (this.lucktype === "건강운") {
+        img = health_image;
+      }
+      return img;
     }
-
-    return {
-      lucktype: f.name,
-      text: f.text[0],
-      image: img
-    };
   },
   methods: {
     onIconClicked: function() {
       Alert.alert("운세 선택", "오늘의 운세는 어떤가요?", [
         {
           text: "재물운",
-          onPress: () => (lucktype = "재물운")
+          onPress: () => (this.lucktype = "재물운")
         },
         {
           text: "사업운",
-          onPress: () => (lucktype = "사업운")
+          onPress: () => (this.lucktype = "사업운")
         },
         {
-          text: "연애운",
-          onPress: () => (lucktype = "연애운")
+          text: "애정운",
+          onPress: () => (this.lucktype = "애정운")
         },
         {
-          text: "사랑운",
-          onPress: () => (lucktype = "사랑운")
+          text: "건강운",
+          onPress: () => (this.lucktype = "건강운")
         }
       ]);
     }
