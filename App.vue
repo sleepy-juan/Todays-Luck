@@ -60,9 +60,12 @@ export default {
   },
   computed: {
     text: function() {
-      return luck.filter(l => l.name === this.lucktype)[0].text[
-        this.text_index
-      ];
+      return luck.filter(l => l.name === this.lucktype)[0].text[this.text_index]
+        .msg;
+    },
+    keyword: function() {
+      return luck.filter(l => l.name === this.lucktype)[0].text[this.text_index]
+        .key;
     },
     image: function() {
       let f = luck.filter(l => l.name === this.lucktype)[0];
@@ -90,8 +93,8 @@ export default {
             let text = luck.filter(l => l.name === "재물운")[0].text;
             while (texts.length < 3) {
               let index = Math.floor(Math.random() * text.length);
-              var rand = text[index];
-              if (texts.includes(rand)) {
+              var rand = text[index].key;
+              if (texts.includes(text[index].msg)) {
                 continue;
               }
               texts.push({
@@ -113,8 +116,8 @@ export default {
             let text = luck.filter(l => l.name === "사업운")[0].text;
             while (texts.length < 3) {
               let index = Math.floor(Math.random() * text.length);
-              var rand = text[index];
-              if (texts.includes(rand)) {
+              var rand = text[index].key;
+              if (texts.includes(text[index].msg)) {
                 continue;
               }
               texts.push({
@@ -136,8 +139,8 @@ export default {
             let text = luck.filter(l => l.name === "애정운")[0].text;
             while (texts.length < 3) {
               let index = Math.floor(Math.random() * text.length);
-              var rand = text[index];
-              if (texts.includes(rand)) {
+              var rand = text[index].key;
+              if (texts.includes(text[index].msg)) {
                 continue;
               }
               texts.push({
@@ -159,8 +162,8 @@ export default {
             let text = luck.filter(l => l.name === "건강운")[0].text;
             while (texts.length < 3) {
               let index = Math.floor(Math.random() * text.length);
-              var rand = text[index];
-              if (texts.includes(rand)) {
+              var rand = text[index].key;
+              if (texts.includes(text[index].msg)) {
                 continue;
               }
               texts.push({
