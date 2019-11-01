@@ -5,6 +5,12 @@
     </touchable-opacity>
     <text class="title">오늘의 운세는 {{lucktype}}입니다.</text>
     <text class="description">{{text}}</text>
+    <text class="lucky-item" v-if="luck_selected">행운의 아이템</text>
+    <view class="lucky-items" v-if="luck_selected">
+      <image class="item" :style="{width: 60, height: 60}" :source="item1" />
+      <image class="item" :style="{width: 60, height: 60}" :source="item2" />
+      <image class="item" :style="{width: 60, height: 60}" :source="item3" />
+    </view>
 
     <status-bar background-color="blue" bar-style="light-content" />
   </view>
@@ -24,7 +30,7 @@
   margin-top: 20;
 }
 .description {
-  margin-top: 20;
+  margin-top: 10;
   padding-left: 40;
   padding-right: 40;
 }
@@ -39,6 +45,23 @@
   align-items: center;
   justify-content: center;
 }
+
+.lucky-item {
+  margin-top: 50;
+  font-size: 22;
+  font-weight: bold;
+}
+
+.lucky-items {
+  flex-direction: row;
+
+  margin-top: 15;
+}
+
+.item {
+  margin-left: 10;
+  margin-right: 10;
+}
 </style>
 
 
@@ -50,13 +73,18 @@ import love_image from "./assets/love.png";
 import business_image from "./assets/business.png";
 import plus_image from "./assets/plus.png";
 
+import item_book from "./assets/items/book.png";
+import item_coffee from "./assets/items/coffee.png";
+import item_phone from "./assets/items/phone.png";
+
 import { Alert } from "react-native";
 
 export default {
   data: {
     luck: luck,
     lucktype: "???",
-    text_index: 0
+    text_index: 0,
+    items: [item_book, item_coffee, item_phone]
   },
   computed: {
     text: function() {
@@ -81,6 +109,18 @@ export default {
         img = health_image;
       }
       return img;
+    },
+    luck_selected: function() {
+      return this.lucktype !== "???";
+    },
+    item1: function() {
+      return this.items[0];
+    },
+    item2: function() {
+      return this.items[1];
+    },
+    item3: function() {
+      return this.items[2];
     }
   },
   methods: {
