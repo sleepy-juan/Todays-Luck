@@ -43,12 +43,12 @@
 
 
 <script>
-import luck from "./assets/luck.json";
-import money_image from "./assets/money.png";
-import health_image from "./assets/health.png";
-import love_image from "./assets/love.png";
-import business_image from "./assets/business.png";
-import plus_image from "./assets/plus.png";
+import luck from "../assets/luck.json";
+import money_image from "../assets/money.png";
+import health_image from "../assets/health.png";
+import love_image from "../assets/love.png";
+import business_image from "../assets/business.png";
+import plus_image from "../assets/plus.png";
 
 import { Alert } from "react-native";
 

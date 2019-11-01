@@ -15,6 +15,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "vue-native-core": "0.1.4",
     "vue-native-helper": "0.1.4",
+    "vue-native-router": "^0.1.1",
     "vuefire": "^2.2.0"
   },
   "devDependencies": {
